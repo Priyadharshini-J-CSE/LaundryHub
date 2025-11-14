@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lost Item Requests - Dhobi Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" th:href="@{/dhobi/dashboard}">Dhobi Dashboard</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" th:href="@{/dhobi/laundry-requests}">Laundry Requests</a>
+                <a class="nav-link" th:href="@{/dhobi/lost-requests}">Lost Requests</a>
+                <a class="nav-link" th:href="@{/logout}">Logout</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mt-4">
+        <h2>Lost Item Reports</h2>
+        
+        <div th:if="${#lists.isEmpty(items)}" class="alert alert-info">
+            No pending lost item reports.
+        </div>
+        
+        <div th:each="item : ${items}" class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${item.itemDescription}"></h5>
+                <p class="text-muted">Reported by: <span th:text="${item.reportedBy}"></span></p>
+                <p class="text-muted">Location: <span th:text="${item.type}"></span></p>
+                <p class="text-muted">Reported: <span th:text="${item.reportedAt}"></span></p>
+                
+                <div th:if="${item.imageUrl}" class="mb-3">
+                    <img th:src="${item.imageUrl}" alt="Lost item image" class="img-thumbnail" style="max-width: 200px;">
+                </div>
+                
+                <form th:action="@{'/dhobi/lost-requests/respond/' + ${item.id}}" method="post">
+                    <div class="mb-3">
+                        <label for="response" class="form-label">Response</label>
+                        <textarea class="form-control" name="response" rows="3" 
+                                placeholder="Provide response to the student..." required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select class="form-select" name="status" required>
+                            <option value="FOUND">Found</option>
+                            <option value="NOT_FOUND">Not Found</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success">Send Response</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
