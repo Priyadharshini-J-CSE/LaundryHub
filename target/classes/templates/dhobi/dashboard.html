@@ -10,7 +10,7 @@
     <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand" href="#">Dhobi Dashboard</a>
             <div class="navbar-nav ms-auto">
@@ -23,45 +23,6 @@
     
     <div class="container mt-4">
         <h2>Welcome, <span th:text="${user.username}"></span>!</h2>
-        <p class="text-muted">Manage student requests and provide excellent laundry services</p>
-        
-        <!-- Quick Stats -->
-        <div class="row mt-4">
-            <div class="col-md-3">
-                <div class="card bg-light">
-                    <div class="card-body text-center">
-                        <h3 class="text-warning">8</h3>
-                        <p class="mb-0">Pending Requests</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card bg-light">
-                    <div class="card-body text-center">
-                        <h3 class="text-info">5</h3>
-                        <p class="mb-0">In Progress</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card bg-light">
-                    <div class="card-body text-center">
-                        <h3 class="text-success">12</h3>
-                        <p class="mb-0">Completed Today</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card bg-light">
-                    <div class="card-body text-center">
-                        <h3 class="text-primary">3</h3>
-                        <p class="mb-0">Lost Items</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <h4 class="mt-5 mb-3">Service Management</h4>
         <div class="row mt-4">
             <div class="col-md-6">
                 <div class="card">
@@ -83,55 +44,57 @@
             </div>
         </div>
         
-        <!-- Performance & Activity -->
-        <div class="row mt-5">
-            <div class="col-md-8">
+        <!-- Current Workload -->
+        <div class="row mt-4">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Recent Activity</h5>
+                        <h5>Current Workload</h5>
                     </div>
                     <div class="card-body">
-                        <ul class="list-unstyled">
-                            <li class="mb-2">✅ Delivered laundry to Priya - Room 204 - 30 mins ago</li>
-                            <li class="mb-2">📦 Collected laundry from Rahul - Room 156 - 1 hour ago</li>
-                            <li class="mb-2">⚙️ Started washing batch #23 - 2 hours ago</li>
-                            <li class="mb-2">🔍 Responded to lost item report - 3 hours ago</li>
-                            <li class="mb-2">✅ Completed ironing for 5 students - 4 hours ago</li>
-                        </ul>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>👕 Washing Queue</span>
+                                <span class="badge bg-info">8 items</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>🔥 Ironing Queue</span>
+                                <span class="badge bg-warning">5 items</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>📦 Ready for Pickup</span>
+                                <span class="badge bg-success">3 items</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Today's Performance</h5>
+                        <h5>Weekly Summary</h5>
                     </div>
                     <div class="card-body">
                         <div class="mb-3">
                             <div class="d-flex justify-content-between">
-                                <span>Requests Completed</span>
-                                <strong>12/15</strong>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-success" style="width: 80%"></div>
+                                <span>Total Requests</span>
+                                <strong>127</strong>
                             </div>
                         </div>
                         <div class="mb-3">
                             <div class="d-flex justify-content-between">
-                                <span>Response Time</span>
-                                <strong>15 mins</strong>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-info" style="width: 90%"></div>
+                                <span>Completed</span>
+                                <strong class="text-success">115</strong>
                             </div>
                         </div>
                         <div class="mb-3">
                             <div class="d-flex justify-content-between">
-                                <span>Customer Rating</span>
-                                <strong>4.8/5</strong>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-warning" style="width: 96%"></div>
+                                <span>Success Rate</span>
+                                <strong class="text-success">90.5%</strong>
                             </div>
                         </div>
                     </div>
@@ -139,26 +102,41 @@
             </div>
         </div>
         
-        <!-- Quick Actions -->
+        <!-- Student Feedback -->
         <div class="row mt-4">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Quick Actions</h5>
+                        <h5>Recent Student Feedback</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-3">
-                                <button class="btn btn-outline-primary w-100 mb-2">📦 Mark as Collected</button>
+                            <div class="col-md-4">
+                                <div class="border rounded p-3">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <strong>Priya S.</strong>
+                                        <span>⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                    <p class="small mb-0">"Excellent service! Clothes were perfectly cleaned."</p>
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-outline-info w-100 mb-2">⚙️ Start Washing</button>
+                            <div class="col-md-4">
+                                <div class="border rounded p-3">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <strong>Rahul K.</strong>
+                                        <span>⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                    <p class="small mb-0">"Very professional. Highly recommend!"</p>
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-outline-warning w-100 mb-2">🔥 Begin Ironing</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-outline-success w-100 mb-2">✅ Ready for Pickup</button>
+                            <div class="col-md-4">
+                                <div class="border rounded p-3">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <strong>Anita M.</strong>
+                                        <span>⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                    <p class="small mb-0">"Fast and reliable service. Thank you!"</p>
+                                </div>
                             </div>
                         </div>
                     </div>
