@@ -1,0 +1,75 @@
+/* Custom Theme - Violet & Orange */
+:root {
+    --primary-color: #9400D3; /* Dark Violet */
+    --secondary-color: #FF991C; /* Orange */
+    --accent-color: #FF991C; /* Orange accent */
+    --text-light: #FFFFFF;
+    --bg-light: #F5F5F5;
+}
+
+/* Fonts */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Anta', sans-serif;
+}
+
+body, p, span, div, button, input, textarea, select {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Navigation */
+.navbar-dark {
+    background-color: var(--primary-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.bg-success {
+    background-color: var(--secondary-color) !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-success {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-success:hover {
+    background-color: #6A0DAD;
+    border-color: #6A0DAD;
+}
+
+/* Cards */
+.card {
+    border: 2px solid var(--primary-color);
+}
+
+.card-header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+/* Badges */
+.badge.bg-warning {
+    background-color: var(--accent-color) !important;
+}
+
+.badge.bg-success {
+    background-color: var(--secondary-color) !important;
+}
+
+/* Links */
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
