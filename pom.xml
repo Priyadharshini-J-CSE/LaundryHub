@@ -48,6 +48,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <jvmArguments>
+                        --add-opens java.base/java.lang=ALL-UNNAMED
+                        --add-opens java.base/sun.security.ssl=ALL-UNNAMED
+                        -Dcom.sun.net.ssl.checkRevocation=false
+                        -Dtrust_all_cert=true
+                    </jvmArguments>
+                </configuration>
             </plugin>
         </plugins>
     </build>
